@@ -1,14 +1,14 @@
-// Seven-segment display decoder for hexadecimal digits.
+// Counter which increments to a specified maximum integer or decrements to 0, before wrapping.
 //
 // Parameters:
 //  MAX             - maximum integer reached by the counter.
-//  WIDTH           - bit_width used by count
+//  WIDTH           - bit_width of counter
 //
 // Ports:
 //  enable          - When low, counter is disabled.
 //  up              - When high, the counter increments to MAX before wrapping to 0.
 //                    When low, the counter decrements to 0 before wrapping to MAX.
-//  count           - current value of the counter.
+//  count           - counter value, 0-MAX
 
 `timescale 1ns / 1ps
 
