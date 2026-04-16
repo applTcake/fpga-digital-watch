@@ -1,8 +1,8 @@
 // Counter which increments to a specified maximum integer or decrements to 0, before wrapping.
 //
 // Parameters:
-//  MAX             - maximum integer reached by the counter.
-//  WIDTH           - bit_width of counter
+//  MAX             - Maximum integer reached by the counter.
+//  WIDTH           - Bit_width of counter.
 //
 // Ports:
 //  enable          - When low, counter is disabled.
