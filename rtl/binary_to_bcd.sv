@@ -1,0 +1,6 @@
+module binary_to_bcd (
+    input  logic [6:0] bin,
+    output logic [3:0] tens,
+    output logic [3:0] ones
+);
+endmodule
