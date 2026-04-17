@@ -42,7 +42,7 @@ module restartable_rate_generator #(
 
       assign rst_count = !running;
       assign enable_count = running;
-      assign tick_qualifier = count == CountWidth'(CYCLE_COUNT - 1);
+      assign tick_qualifier = (count <= CountWidth'(CYCLE_COUNT - 1)) ? count == CountWidth'(CYCLE_COUNT - 2) : count == CountWidth'(CYCLE_COUNT - 1);
 
     end else begin : g_special
       assign tick_qualifier = 1'b1;

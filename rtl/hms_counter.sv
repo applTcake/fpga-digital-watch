@@ -28,6 +28,7 @@ module hms_counter #(
   localparam logic [W_SECONDS-1:0] MaxSeconds = W_SECONDS'(N_SECONDS - 1);
   logic minute_rollover, second_rollover;
   logic shifted_minute_rollover, shifted_second_rollover;
+  logic up;
   //   logic [  W_HOURS-1:0] next_hour;
   //   logic [W_MINUTES-1:0] next_minute;
   //   logic [W_SECONDS-1:0] next_second;
@@ -42,7 +43,7 @@ module hms_counter #(
   ) u_hour (
       .clk(shifted_minute_rollover),
       .enable(enable),
-      .up(1'b1),
+      .up(up),
       .count(hours)
   );
   up_down_counter #(
@@ -51,7 +52,7 @@ module hms_counter #(
   ) u_minute (
       .clk(shifted_second_rollover),
       .enable(enable),
-      .up(1'b1),
+      .up(up),
       .count(minutes)
   );
   up_down_counter #(
@@ -60,7 +61,7 @@ module hms_counter #(
   ) u_second (
       .clk(clk),
       .enable(enable),
-      .up(1'b1),
+      .up(up),
       .count(seconds)
   );
 
@@ -74,6 +75,7 @@ module hms_counter #(
       .in (second_rollover),
       .out(shifted_second_rollover)
   );
+  assign up = 1'b1;
   assign minute_rollover = (minutes == MaxMinutes && enable);
   assign second_rollover = (seconds == MaxSeconds && enable);
 endmodule
