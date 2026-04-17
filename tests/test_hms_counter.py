@@ -33,7 +33,7 @@ def test_hms_counter(cocotb_runner, config):
     config["W_SECONDS"] = math.ceil(math.log2(config["N_SECONDS"]))
     cocotb_runner(
         top="hms_counter",
-        sources=["up_down_counter.sv", "hms_counter.sv"],
+        sources=["up_down_counter.sv", "hms_counter.sv", "shift_register.sv"],
         test_module="tb_hms_counter",
         parameters=config,
     )
